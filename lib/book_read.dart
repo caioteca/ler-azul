@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 class BooksRead extends StatefulWidget {
+  final urlPdf;
+  BooksRead({@required this.urlPdf});
   @override
   State<BooksRead> createState() => _BooksReadState();
 }
@@ -80,7 +82,7 @@ class _BooksReadState extends State<BooksRead> {
                           _pageCountController
                               .add('${currentPage + 1} - $pageCount');
                         },
-                      ).fromAsset('assets/pdf/pdf_example.pdf'),
+                      ).fromAsset('${widget.urlPdf}'),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(

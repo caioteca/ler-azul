@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'book_model.dart';
 import 'books_details.dart';
 import 'books_profile.dart';
+import 'book_data.dart';
 
 class BooksHome extends StatelessWidget {
   @override
@@ -143,6 +144,8 @@ class BookSection extends StatelessWidget {
             ),
             height: MediaQuery.of(context).size.height * 0.4,
             child: ListView.builder(
+              itemCount: allBooks.length,
+              scrollDirection: Axis.horizontal,
               itemBuilder: (ctx, i) => GestureDetector(
                 onTap: () => Navigator.push(
                   context,
@@ -182,7 +185,7 @@ class BookSection extends StatelessWidget {
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(20),
                                   child: Image.asset(
-                                    bookList[i].coverImage,
+                                    allBooks[i].coverImage,
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -209,7 +212,7 @@ class BookSection extends StatelessWidget {
                         ),
                         SizedBox(height: 16),
                         Text(
-                          bookList[i].name,
+                          allBooks[i].name,
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -219,7 +222,7 @@ class BookSection extends StatelessWidget {
                           height: 2,
                         ),
                         Text(
-                          bookList[i].author,
+                          allBooks[i].author,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
@@ -233,8 +236,6 @@ class BookSection extends StatelessWidget {
                   ],
                 ),
               ),
-              itemCount: bookList.length,
-              scrollDirection: Axis.horizontal,
             ),
           )
         ],

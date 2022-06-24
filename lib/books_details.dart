@@ -4,6 +4,7 @@ import 'book_data.dart';
 import 'book_model.dart';
 import 'book_read.dart';
 import 'books_listen.dart';
+import 'book_data.dart';
 
 class BooksDetails extends StatelessWidget {
   final int index;
@@ -12,12 +13,11 @@ class BooksDetails extends StatelessWidget {
   BooksDetails({this.index, this.section});
   @override
   Widget build(BuildContext context) {
-    List<Book> bookList;
-    if (section == "Continue lendo") {
+    /*  if (section == "Continue lendo") {
       bookList = recentBooks;
     } else if (section == "Descubra mais") {
       bookList = allBooks;
-    }
+    } */
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -87,7 +87,7 @@ class BooksDetails extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                               child: Image.asset(
                                 // "assets/images/0.jfif",
-                                bookList[index].coverImage,
+                                allBooks[index].coverImage,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -113,7 +113,7 @@ class BooksDetails extends StatelessWidget {
                     ),
                     Text(
                       // "Conjure Women",
-                      bookList[index].name,
+                      allBooks[index].name,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w700,
@@ -124,7 +124,7 @@ class BooksDetails extends StatelessWidget {
                     ),
                     Text(
                       //"By Afia Atakora",
-                      "By ${bookList[index].name}",
+                      "By ${allBooks[index].name}",
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -230,7 +230,9 @@ class BooksDetails extends StatelessWidget {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => BooksRead(),
+                              builder: (context) => BooksRead(
+                                urlPdf: allBooks[index].urlPdf,
+                              ),
                             ),
                           ),
                           child: Text(

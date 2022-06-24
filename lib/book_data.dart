@@ -6,13 +6,13 @@ List<Book> _allBooks = [
     author: "Karma Brown",
     coverImage: "assets/images/3.jfif",
     rating: 4.0,
-    urlPdf: "assets/pdf/pdf_example.pdf",
+    urlPdf: "assets/pdf/cert.pdf",
   ),
   Book(
       name: "The Glass Hotel",
       author: "Emily St. John Mandel",
       coverImage: "assets/images/4.jfif",
-      urlPdf: "assets/pdf/pdf_example.pdf",
+      urlPdf: "assets/pdf/cert.pdf",
       rating: 4.0),
   Book(
       name: "Conjure Women",
